@@ -47,8 +47,7 @@ function generateX() {
   numberEl.checked && xs.push(getNumber());
   symbolEl.checked && xs.push(getSymbol());
 
-  if (xs.length === 0) 
-    return "";
+  if (xs.length === 0) return "";
 
   return xs[Math.floor(Math.random() * xs.length)];
 }
@@ -56,17 +55,14 @@ function generateX() {
 generateEl.addEventListener("click", generatePassword);
 
 copyEl.addEventListener("click", () => {
-  const textarea = document.createElement("textarea");
   const password = pwEl.innerText;
-
-  if (!password) {
-      return;
-  }
-
+  if (!password) return;
+  
+  const textarea = document.createElement("textarea");
   textarea.value = password;
   document.body.appendChild(textarea);
   textarea.select();
   document.execCommand("copy");
   textarea.remove();
-  alert("Your generated password is copied to clipboard");
+  alert("Your generated password is copied to clipboard.");
 });
